@@ -8,7 +8,8 @@
 }
 
 body {
-  min-height: 100vh;
+  height: 100svh;
+  overflow: hidden;
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
@@ -18,4 +19,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+div#app {
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */

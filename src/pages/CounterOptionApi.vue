@@ -1,6 +1,6 @@
 <template>
   <section class="home">
-    <p>This is the Home , option api</p>
+    <p>This Counter , option api</p>
     <button @click="increaseCounter">Counter : {{ count }}</button>
   </section>
 </template>

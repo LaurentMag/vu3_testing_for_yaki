@@ -1,7 +1,8 @@
 <template>
-  <header>
+  <header class="router">
     <nav>
-      <RouterLink to="/">optionApi counter</RouterLink>
+      <RouterLink to="/">Home Page</RouterLink>
+      <RouterLink to="/counteropt">optionApi counter</RouterLink>
       <RouterLink to="/countercomp">compositionApi counter</RouterLink>
       <RouterLink to="/cardview">Card view</RouterLink>
     </nav>
@@ -16,7 +17,7 @@ import {Fragment} from "vue";
 </script>
 
 <style lang="scss">
-header {
+.router {
   background-color: rgb(122, 122, 122);
 
   nav {

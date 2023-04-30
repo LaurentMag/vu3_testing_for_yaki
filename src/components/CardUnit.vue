@@ -9,6 +9,8 @@
   </section>
 </template>
 
+<!-- ------------------------------------------------------------ -->
+
 <script setup lang="ts">
 import type {Artiste} from "@/entities/Artiste";
 import type {PropType} from "vue";
@@ -37,6 +39,8 @@ const sendGenre = () => {
   emit("getSongGenre", `${props.artistprops.name}, ${props.artistprops.genre}`);
 };
 </script>
+
+<!-- ------------------------------------------------------------ -->
 
 <style lang="scss">
 .card-unit-wrapper {
