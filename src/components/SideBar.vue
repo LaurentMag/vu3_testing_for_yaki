@@ -1,11 +1,20 @@
 <template>
-  <nav class="sidebar"></nav>
+  <nav
+    class="sidebar"
+    :class="{open: classSwitch}"></nav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  classSwitch: {
+    type: Boolean,
+    required: true,
+  },
+});
+</script>
 
 <style lang="scss">
 .sidebar {
-  background-color: #e74c3c;
+  background-color: #353535;
 }
 </style>

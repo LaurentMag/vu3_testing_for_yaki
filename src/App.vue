@@ -18,7 +18,7 @@ import {Fragment} from "vue";
 
 <style lang="scss">
 .router {
-  background-color: rgb(122, 122, 122);
+  background-color: rgb(84, 84, 84);
 
   nav {
     padding: 2rem;
@@ -26,8 +26,9 @@ import {Fragment} from "vue";
     gap: 2rem;
     a {
       text-decoration: none;
-      color: black;
+      color: rgb(186, 182, 182);
       font-size: 1.3rem;
+      font-weight: 900;
     }
   }
 }
