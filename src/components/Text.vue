@@ -107,5 +107,8 @@
 
 <style lang="scss">
 .homecontent {
+  color: rgb(195, 191, 191);
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 </style>

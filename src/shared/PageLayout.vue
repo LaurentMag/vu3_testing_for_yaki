@@ -1,24 +1,19 @@
 <template>
   <div class="grid-container">
-    <!-- <section class="page-layout">
-        <header-comp>
-          <button
-            @click="switchNavVisibilite"
-            class="burger-button">
-            {{ switchSide ? "Close" : "Open" }}
-          </button>
-        </header-comp>
-        <side-bar v-bind:classSwitch="switchSide" />
-        <main class="content">
-          <div class="test-text-content">
-            <slot></slot>
-          </div>
-        </main>
-      </section> -->
-    <section class="testing-stuff">
-      <div>
-        <Text />
-      </div>
+    <section class="page-layout">
+      <header-comp>
+        <button
+          @click="switchNavVisibilite"
+          class="burger-button">
+          {{ switchSide ? "Close" : "Open" }}
+        </button>
+      </header-comp>
+      <side-bar v-bind:classSwitch="switchSide" />
+      <main class="content">
+        <div class="test-text-content">
+          <slot></slot>
+        </div>
+      </main>
     </section>
   </div>
 </template>
@@ -46,22 +41,6 @@ const switchNavVisibilite = () => {
   height: 90%;
 }
 // ======================================================================
-
-.testing-stuff {
-  padding: 3rem;
-  background-color: #65ab82;
-
-  overflow: hidden;
-
-  flex: 1;
-  display: flex;
-  justify-content: center;
-
-  div {
-    width: 80%;
-    overflow: scroll;
-  }
-}
 
 // ======================================================================
 
@@ -94,13 +73,13 @@ const switchNavVisibilite = () => {
   display: none;
 }
 
-// @media (max-width: 850px) {
-//   .content {
-//     grid-column: 1/3;
-//   }
+@media (max-width: 850px) {
+  .content {
+    grid-column: 1/3;
+  }
 
-//   .burger-button {
-//     display: block;
-//   }
-// }
+  .burger-button {
+    display: block;
+  }
+}
 </style>
