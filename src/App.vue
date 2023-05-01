@@ -1,14 +1,16 @@
 <template>
-  <header class="router">
-    <nav>
-      <RouterLink to="/">Home Page</RouterLink>
-      <RouterLink to="/counteropt">optionApi counter</RouterLink>
-      <RouterLink to="/countercomp">compositionApi counter</RouterLink>
-      <RouterLink to="/cardview">Card view</RouterLink>
-    </nav>
-  </header>
+  <section class="app-main-container">
+    <header class="router">
+      <nav>
+        <RouterLink to="/">Home Page</RouterLink>
+        <RouterLink to="/counteropt">optionApi counter</RouterLink>
+        <RouterLink to="/countercomp">compositionApi counter</RouterLink>
+        <RouterLink to="/cardview">Card view</RouterLink>
+      </nav>
+    </header>
 
-  <RouterView />
+    <RouterView />
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -17,6 +19,10 @@ import {Fragment} from "vue";
 </script>
 
 <style lang="scss">
+.app-main-container {
+  height: 100svh;
+}
+
 .router {
   background-color: rgb(84, 84, 84);
 

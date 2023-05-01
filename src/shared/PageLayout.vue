@@ -1,17 +1,24 @@
 <template>
   <div class="grid-container">
-    <section class="page-layout">
-      <header-comp>
-        <button
-          @click="switchNavVisibilite"
-          class="burger-button">
-          {{ switchSide ? "Close" : "Open" }}
-        </button>
-      </header-comp>
-      <side-bar v-bind:classSwitch="switchSide" />
-      <main class="content">
-        <slot></slot>
-      </main>
+    <!-- <section class="page-layout">
+        <header-comp>
+          <button
+            @click="switchNavVisibilite"
+            class="burger-button">
+            {{ switchSide ? "Close" : "Open" }}
+          </button>
+        </header-comp>
+        <side-bar v-bind:classSwitch="switchSide" />
+        <main class="content">
+          <div class="test-text-content">
+            <slot></slot>
+          </div>
+        </main>
+      </section> -->
+    <section class="testing-stuff">
+      <div>
+        <Text />
+      </div>
     </section>
   </div>
 </template>
@@ -20,6 +27,8 @@
 import HeaderComp from "@/components/HeaderComp.vue";
 import SideBar from "@/components/SideBar.vue";
 import {ref} from "vue";
+
+import Text from "@/components/Text.vue";
 
 const switchSide = ref(false);
 
@@ -30,14 +39,33 @@ const switchNavVisibilite = () => {
 
 <style lang="scss">
 .grid-container {
-  // all height need to be set from body to this container
-  height: 100%;
-  // flex for flex 1
   display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  height: 90%;
+}
+// ======================================================================
+
+.testing-stuff {
+  padding: 3rem;
+  background-color: #65ab82;
+
+  overflow: hidden;
+
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  div {
+    width: 80%;
+    overflow: scroll;
+  }
 }
 
+// ======================================================================
+
 .page-layout {
-  // fill leftover aviable space
   flex: 1;
   display: grid;
   grid-template-rows: 5rem auto;
@@ -45,26 +73,34 @@ const switchNavVisibilite = () => {
 }
 
 .content {
-  // also need to hide overflow in the content container
-  overflow: hidden;
+  display: flex;
+
+  overflow-y: hidden;
+
+  grid-row: 2;
+  grid-column: 2/3;
+
   background-color: #65ab82;
   padding-block: 4rem;
   padding-inline: 0.5rem;
-  grid-row: 2;
-  grid-column: 2/3;
+
+  .test-text-content {
+    flex: 1;
+    overflow: scroll;
+  }
 }
 
 .burger-button {
   display: none;
 }
 
-@media (max-width: 850px) {
-  .content {
-    grid-column: 1/3;
-  }
+// @media (max-width: 850px) {
+//   .content {
+//     grid-column: 1/3;
+//   }
 
-  .burger-button {
-    display: block;
-  }
-}
+//   .burger-button {
+//     display: block;
+//   }
+// }
 </style>

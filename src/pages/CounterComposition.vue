@@ -3,8 +3,8 @@
     <article>
       <p>This is counter view with composition logic</p>
       <div class="button-div">
-        <button @click="globalCount.increment">global counter : {{ globalCount.count }}</button>
-        <button @click="globalCount.reset">Reset global count</button>
+        <button @click="globalCount.increment()">global counter : {{ globalCount.count }}</button>
+        <button @click="globalCount.reset()">Reset global count</button>
       </div>
     </article>
     <article class="child-counter">

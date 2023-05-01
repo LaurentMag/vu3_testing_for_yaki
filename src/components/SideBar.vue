@@ -24,19 +24,20 @@ const props = defineProps({
   background-color: #353535;
 }
 
-@media (max-width: 850px) {
-  .sidebar {
-    // grid declaration in PageLayout
-    grid-column: 1/3;
-    transform: translateX(100%);
-    z-index: 1;
+// @media (max-width: 850px) {
+//   .sidebar {
+//     // grid declaration in PageLayout
+//     grid-column: 1/3;
 
-    background-color: #353535bc;
-    backdrop-filter: blur(7px);
-  }
+//     transform: translateX(100%);
+//     z-index: 1;
 
-  .open {
-    transform: translateX(0);
-  }
-}
+//     background-color: #353535bc;
+//     backdrop-filter: blur(7px);
+//   }
+
+//   .open {
+//     transform: translateX(0);
+//   }
+// }
 </style>

@@ -1,6 +1,6 @@
 "use strict";
 
-import type {GlobalCountType} from "@/entities/globalCountType";
+import type {GlobalCountType} from "@/entities/GlobalCountType";
 import {nextTick, reactive} from "vue";
 
 export const globalCount: GlobalCountType = reactive({

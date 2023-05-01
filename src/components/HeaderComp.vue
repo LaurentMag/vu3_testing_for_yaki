@@ -11,7 +11,6 @@
   background-color: #2e73a0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 
   padding: 1rem;
 
