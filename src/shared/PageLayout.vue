@@ -37,28 +37,17 @@ const switchNavVisibilite = () => {
 }
 
 .page-layout {
-  // fil leftover aviable space
+  // fill leftover aviable space
   flex: 1;
   display: grid;
   grid-template-rows: 5rem auto;
-  grid-template-columns: minmax(20rem, 0.4fr) auto;
-
-  .header {
-    grid-row: 1;
-    grid-column: 1/3;
-  }
-}
-
-.sidebar {
-  grid-row: 2;
-  grid-column: 1/2;
-
-  transition: transform 0.15s ease-out;
+  grid-template-columns: minmax(20%, 20rem) minmax(40rem, 1fr);
 }
 
 .content {
-  background-color: #65ab82;
+  // also need to hide overflow in the content container
   overflow: hidden;
+  background-color: #65ab82;
   padding-block: 4rem;
   padding-inline: 0.5rem;
   grid-row: 2;
@@ -70,25 +59,12 @@ const switchNavVisibilite = () => {
 }
 
 @media (max-width: 850px) {
-  .sidebar,
   .content {
     grid-column: 1/3;
   }
 
-  .sidebar {
-    transform: translateX(100%);
-    z-index: 1;
-
-    background-color: #353535bc;
-    backdrop-filter: blur(7px);
-  }
-
   .burger-button {
     display: block;
-  }
-
-  .open {
-    transform: translateX(0);
   }
 }
 </style>

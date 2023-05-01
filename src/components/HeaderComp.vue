@@ -14,5 +14,9 @@
   justify-content: flex-end;
 
   padding: 1rem;
+
+  // grid declaration in PageLayout
+  grid-row: 1;
+  grid-column: 1/3;
 }
 </style>
