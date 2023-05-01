@@ -1,9 +1,3 @@
-<template>
-  <input
-    type="text"
-    @input="inputTyping($event)" />
-</template>
-
 <script setup lang="ts">
 const emit = defineEmits({
   // getInputvalue is the prop name defined in cardView
@@ -21,3 +15,9 @@ const inputTyping = (e: Event) => {
   emit("getInputvalue", target.value);
 };
 </script>
+
+<template>
+  <input
+    type="text"
+    @input="inputTyping($event)" />
+</template>

@@ -1,9 +1,3 @@
-<template>
-  <nav
-    class="sidebar"
-    :class="{open: classSwitch}"></nav>
-</template>
-
 <script setup lang="ts">
 const props = defineProps({
   classSwitch: {
@@ -12,6 +6,12 @@ const props = defineProps({
   },
 });
 </script>
+
+<template>
+  <nav
+    class="sidebar"
+    :class="{open: classSwitch}"></nav>
+</template>
 
 <style lang="scss">
 .sidebar {

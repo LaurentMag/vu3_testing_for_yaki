@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import HeaderComp from "@/components/HeaderComp.vue";
+import SideBar from "@/components/SideBar.vue";
+import {ref} from "vue";
+
+const switchSide = ref(false);
+
+const switchNavVisibilite = () => {
+  switchSide.value = !switchSide.value;
+};
+</script>
+
+<!-- ------------------------------------------------------ -->
+
 <template>
   <div class="grid-container">
     <section class="page-layout">
@@ -18,19 +32,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import HeaderComp from "@/components/HeaderComp.vue";
-import SideBar from "@/components/SideBar.vue";
-import {ref} from "vue";
-
-import Text from "@/components/Text.vue";
-
-const switchSide = ref(false);
-
-const switchNavVisibilite = () => {
-  switchSide.value = !switchSide.value;
-};
-</script>
+<!-- ------------------------------------------------------ -->
 
 <style lang="scss">
 .grid-container {
@@ -40,9 +42,6 @@ const switchNavVisibilite = () => {
 
   height: 90%;
 }
-// ======================================================================
-
-// ======================================================================
 
 .page-layout {
   flex: 1;

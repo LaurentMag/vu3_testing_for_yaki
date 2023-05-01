@@ -1,10 +1,3 @@
-<template>
-  <section class="home">
-    <p>This Counter , option api</p>
-    <button @click="increaseCounter">Counter : {{ count }}</button>
-  </section>
-</template>
-
 <script lang="ts">
 export default {
   data() {
@@ -23,6 +16,15 @@ export default {
   },
 };
 </script>
+
+<!-- --------------------------------------------------------------- -->
+
+<template>
+  <section class="home">
+    <p>This Counter , option api</p>
+    <button @click="increaseCounter">Counter : {{ count }}</button>
+  </section>
+</template>
 
 <style lang="scss">
 .home {

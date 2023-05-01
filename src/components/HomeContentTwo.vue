@@ -1,17 +1,17 @@
+<script setup lang="ts">
+import Text from "@/components/Text.vue";
+</script>
+
 <template>
-  <section class="testing-stuff">
+  <section class="content-container">
     <div class="inside-testing">
       <Text />
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
-import Text from "@/components/Text.vue";
-</script>
-
 <style lang="scss">
-.testing-stuff {
+.content-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +30,7 @@ import Text from "@/components/Text.vue";
     height: 80svh;
     width: 90%;
 
-    overflow: scroll;
+    overflow: auto;
   }
 }
 </style>

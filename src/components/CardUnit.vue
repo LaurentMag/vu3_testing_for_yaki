@@ -1,16 +1,3 @@
-<template>
-  <section class="card-unit-wrapper">
-    <div>
-      <h1>{{ artistprops!.name ?? "error" }}</h1>
-      <p>{{ artistprops!.country ?? "error" }}</p>
-    </div>
-
-    <button @click.prevent="sendGenre">Select</button>
-  </section>
-</template>
-
-<!-- ------------------------------------------------------------ -->
-
 <script setup lang="ts">
 import type {Artiste} from "@/entities/Artiste";
 import type {PropType} from "vue";
@@ -39,6 +26,19 @@ const sendGenre = () => {
   emit("getSongGenre", `${props.artistprops.name}, ${props.artistprops.genre}`);
 };
 </script>
+
+<!-- ------------------------------------------------------------ -->
+
+<template>
+  <section class="card-unit-wrapper">
+    <div>
+      <h1>{{ artistprops!.name ?? "error" }}</h1>
+      <p>{{ artistprops!.country ?? "error" }}</p>
+    </div>
+
+    <button @click.prevent="sendGenre">Select</button>
+  </section>
+</template>
 
 <!-- ------------------------------------------------------------ -->
 

@@ -1,10 +1,10 @@
+<script setup lang="ts"></script>
+
 <template>
   <header class="header">
     <slot></slot>
   </header>
 </template>
-
-<script setup lang="ts"></script>
 
 <style lang="scss">
 .header {

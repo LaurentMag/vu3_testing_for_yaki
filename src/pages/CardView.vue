@@ -1,22 +1,3 @@
-<template>
-  <section class="card-view-wrapper">
-    <p class="card-view-title">Card view testing</p>
-    <div class="card-view-emit-answer-container">
-      <p><span>selected card genre : </span> {{ data.songGenre }}</p>
-      <p><span>Input text : </span>{{ data.inputValue }}</p>
-    </div>
-    <card-input @getInputvalue="setInputValue" />
-    <section class="card-view-unit-wrapper">
-      <card-unit
-        v-for="artist in data.artists"
-        v-bind:artistprops="artist"
-        @getSongGenre="setGenre" />
-    </section>
-  </section>
-</template>
-
-<!-- ------------------------------------------------------------ -->
-
 <script setup lang="ts">
 import type {Artiste} from "@/entities/Artiste";
 import CardUnit from "@/components/CardUnit.vue";
@@ -50,6 +31,25 @@ const setInputValue = (value: string) => {
   data.inputValue = value;
 };
 </script>
+
+<!-- ------------------------------------------------------------ -->
+
+<template>
+  <section class="card-view-wrapper">
+    <p class="card-view-title">Card view testing</p>
+    <div class="card-view-emit-answer-container">
+      <p><span>selected card genre : </span> {{ data.songGenre }}</p>
+      <p><span>Input text : </span>{{ data.inputValue }}</p>
+    </div>
+    <card-input @getInputvalue="setInputValue" />
+    <section class="card-view-unit-wrapper">
+      <card-unit
+        v-for="artist in data.artists"
+        v-bind:artistprops="artist"
+        @getSongGenre="setGenre" />
+    </section>
+  </section>
+</template>
 
 <!-- ------------------------------------------------------------ -->
 

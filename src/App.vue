@@ -1,26 +1,47 @@
+<script setup lang="ts">
+import {RouterLink, RouterView} from "vue-router";
+import HeaderTestTwo from "@/components/HeaderTestTwo.vue";
+import {reactive} from "vue";
+
+const teams = reactive({
+  list: [1, 2, 3, 4, 5],
+});
+
+const addTeam = () => {
+  teams.list.push(teams.list.length + 1);
+};
+</script>
+
+<!-- --------------------------------------------------------------- -->
 <template>
   <header-test-two />
   <section class="sidebar-content-container">
     <header class="router">
       <nav>
-        <RouterLink to="/">Home Page</RouterLink>
+        <RouterLink
+          to="/"
+          v-slot="{isExactActive}">
+          Home Page
+          <div :class="{'active-team': isExactActive}">
+            <div
+              v-for="number in teams.list"
+              :class="{'active-link': isExactActive}"></div>
+          </div>
+        </RouterLink>
+
         <RouterLink to="/counteropt">optionApi</RouterLink>
         <RouterLink to="/countercomp">compoApi</RouterLink>
         <RouterLink to="/cardview">Card view</RouterLink>
         <RouterLink to="/gaveup">Old Test</RouterLink>
+        <button @click="addTeam">add team</button>
       </nav>
     </header>
 
-    <div class="page-content">
-      <RouterView />
-    </div>
+    <RouterView />
   </section>
 </template>
 
-<script setup lang="ts">
-import {RouterLink, RouterView} from "vue-router";
-import HeaderTestTwo from "@/components/HeaderTestTwo.vue";
-</script>
+<!-- --------------------------------------------------------------- -->
 
 <style lang="scss">
 // see asset/style.scss for #app { style }
@@ -49,6 +70,16 @@ import HeaderTestTwo from "@/components/HeaderTestTwo.vue";
   }
 }
 
-.page-content {
+.active-team {
+  padding: 2.5rem 1rem 1rem 1rem;
+}
+
+.active-link {
+  margin-bottom: 0.8rem;
+  display: block;
+  width: 5rem;
+  height: 1rem;
+  border: 1px solid rgb(66, 152, 163);
+  background-color: rgb(99, 99, 110);
 }
 </style>

@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import CounterCompoOne from "@/components/CounterCompoOne.vue";
+import CounterCompoTwo from "@/components/CounterCompoTwo.vue";
+
+// global reactive used here with button and button text display
+import {globalCount} from "@/services/globalCount.js";
+</script>
+
+<!-- --------------------------------------------------------------- -->
+
 <template>
   <section>
     <article>
@@ -14,13 +24,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
-import CounterCompoOne from "@/components/CounterCompoOne.vue";
-import CounterCompoTwo from "@/components/CounterCompoTwo.vue";
-
-// global reactive used here with button and button text display
-import {globalCount} from "@/services/globalCount.js";
-</script>
+<!-- --------------------------------------------------------------- -->
 
 <style lang="scss">
 .button-div {
