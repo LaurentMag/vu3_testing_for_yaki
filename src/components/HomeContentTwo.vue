@@ -2,6 +2,8 @@
 import Text from "@/components/Text.vue";
 </script>
 
+<!-- --------------------------------------------------------------- -->
+
 <template>
   <section class="content-container">
     <div class="inside-testing">
@@ -9,6 +11,8 @@ import Text from "@/components/Text.vue";
     </div>
   </section>
 </template>
+
+<!-- --------------------------------------------------------------- -->
 
 <style lang="scss">
 .content-container {
