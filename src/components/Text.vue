@@ -107,6 +107,11 @@
 
 <style lang="scss">
 .homecontent {
+  // long content need to be absolute to get out of the html flow
+  // so not impact the container height
+  // overflow: auto will make sure to have the content scrollable inside the designated container
+  position: absolute;
+
   color: rgb(195, 191, 191);
   font-size: 1.1rem;
   font-weight: 500;
