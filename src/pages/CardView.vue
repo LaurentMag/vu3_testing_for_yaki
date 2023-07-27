@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type {Artiste} from "@/entities/Artiste";
 import CardUnit from "@/components/CardUnit.vue";
-import cardInput from "@/components/CardInput.vue";
 import {reactive} from "vue";
 
 const initialdata: Artiste[] = [
@@ -23,7 +22,7 @@ const data = reactive({
   inputValue: "",
 });
 
-const setGenre = (genre: string) => {
+const setGenreAndName = (genre: string) => {
   data.songGenre = genre;
 };
 
@@ -46,7 +45,7 @@ const setInputValue = (value: string) => {
       <card-unit
         v-for="artist in data.artists"
         v-bind:artistprops="artist"
-        @getSongGenre="setGenre" />
+        @getSongGenre="setGenreAndName" />
     </section>
   </section>
 </template>

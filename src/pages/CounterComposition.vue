@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CounterCompoOne from "@/components/CounterCompoOne.vue";
-import CounterCompoTwo from "@/components/CounterCompoTwo.vue";
+import CounterCompoOne from "@/components/counterCompoOne.vue";
+import CounterCompoTwo from "@/components/counterCompoTwo.vue";
 
 // global reactive used here with button and button text display
 import {globalCount} from "@/services/globalCount.js";
