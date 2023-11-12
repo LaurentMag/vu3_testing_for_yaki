@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type {Artiste} from "@/entities/Artiste";
 import CardUnit from "@/components/CardUnit.vue";
+import CardInput from "@/components/CardInput.vue";
 import {reactive} from "vue";
 
 const initialdata: Artiste[] = [
