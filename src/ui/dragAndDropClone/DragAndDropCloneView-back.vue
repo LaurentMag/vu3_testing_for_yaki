@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {onMounted, reactive, ref} from "vue";
 import ListElementClone from "./ListElementClone.vue";
-import type {ItemType} from "@/entities/dragAndDropType";
+import type {ListElementType} from "@/entities/dragAndDropType";
 import {useMousePos} from "@/composable/useMousePos";
 import {useEventTargetListener} from "@/composable/useEventListener";
 
@@ -41,7 +41,7 @@ const mouseMove = () => {
   }
 };
 
-const selectItemToDrag = (event: MouseEvent, item: ItemType) => {
+const selectItemToDrag = (event: MouseEvent, item: ListElementType) => {
   event.preventDefault();
   window.addEventListener("mousemove", mouseMove);
 
@@ -62,7 +62,7 @@ const onMouseUp = () => {
 };
 useEventTargetListener(window, "mouseup", onMouseUp);
 
-const createClone = (item: ItemType) => {
+const createClone = (item: ListElementType) => {
   let selectedItem = document.getElementById(item.id.toString());
   // Get the position of the original element
 
@@ -98,7 +98,7 @@ const createClone = (item: ItemType) => {
       <h2>Clone List 1</h2>
       <list-element-clone
         v-for="item in list1"
-        v-on:mousedown="(event) => selectItemToDrag(event, item)"
+        v-on:mousedown="(event: MouseEvent) => selectItemToDrag(event, item)"
         :key="item.id"
         :item="item" />
     </section>
@@ -107,7 +107,7 @@ const createClone = (item: ItemType) => {
       <h2>Clone List 2</h2>
       <list-element-clone
         v-for="item in list2"
-        v-on:mousedown.prevent="(event) => selectItemToDrag(event, item)"
+        v-on:mousedown.prevent="(event: MouseEvent) => selectItemToDrag(event, item)"
         :key="item.id"
         :item="item" />
     </section>

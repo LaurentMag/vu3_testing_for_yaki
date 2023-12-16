@@ -1,9 +1,9 @@
-export type ItemType = {
+export type ListElementType = {
   id: number;
   name: string;
 };
 
 export type DraggedItem = {
-  item: ItemType;
-  originalList: ItemType[];
+  item: ListElementType;
+  originalList: ListElementType[];
 };

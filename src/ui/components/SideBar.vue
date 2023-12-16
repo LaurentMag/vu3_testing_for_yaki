@@ -21,7 +21,7 @@ const props = defineProps({
 
   transition: transform 0.15s ease-out;
 
-  background-color: #353535;
+  background-color: #545454;
 }
 
 @media (max-width: 850px) {

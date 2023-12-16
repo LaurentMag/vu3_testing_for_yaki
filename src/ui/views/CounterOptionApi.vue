@@ -28,6 +28,7 @@ export default {
 
 <style lang="scss">
 .home {
+  background-color: $color-page-content;
   padding: 1rem;
 
   button {

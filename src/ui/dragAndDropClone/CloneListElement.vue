@@ -1,27 +1,44 @@
 <script setup lang="ts">
-import type {ItemType} from "@/entities/dragAndDropType";
-import {ref, type PropType} from "vue";
+import type {ListElementType} from "@/entities/dragAndDropType";
+import {ref, type PropType, onMounted, watch} from "vue";
 
 const props = defineProps({
   item: {
-    type: Object as PropType<ItemType>,
+    type: Object as PropType<ListElementType>,
+    required: true,
+  },
+  draggedElement: {
+    type: [Object, null] as PropType<ListElementType | null>,
     required: true,
   },
 });
 
-const emit = defineEmits(["oneMouseDownOnItem"]);
+const itemHtmlElement = ref(null);
+const isDragged = ref(false);
 
-const listElementClone = ref(null);
+watch(
+  () => props.draggedElement,
+  (newVal) => {
+    if (newVal && newVal.id === props.item.id) {
+      isDragged.value = true;
+    } else {
+      isDragged.value = false;
+    }
+  },
+  {immediate: true}
+);
+
+const emit = defineEmits(["onMouseDownOnItem"]);
 
 const selectItem = (event: MouseEvent) => {
-  emit("oneMouseDownOnItem", event, props.item, listElementClone.value);
+  emit("onMouseDownOnItem", event, props.item, itemHtmlElement.value);
 };
 </script>
 
 <template>
   <div
-    :class="['list_item']"
-    ref="listElementClone"
+    :class="['list_item', isDragged ? 'cloned-test' : '']"
+    ref="itemHtmlElement"
     :id="item.id.toString()"
     @mousedown="(event) => selectItem(event)">
     {{ item.name }}
@@ -37,6 +54,7 @@ const selectItem = (event: MouseEvent) => {
   border-radius: 0.5rem;
 
   background-color: #e1e0e0;
+  opacity: 0.75;
 
   cursor: grab;
 
@@ -44,8 +62,14 @@ const selectItem = (event: MouseEvent) => {
     cursor: grabbing;
   }
 
-  // transition: opacity 0.25s ease-in-out, transform 0.1s ease-in-out;
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
+
+.cloned-test {
+  opacity: 0.15;
+  transform: scale(0.9);
+}
+
 .drag_transition {
   background-color: #bababa;
   opacity: 0.25;
@@ -71,14 +95,14 @@ const selectItem = (event: MouseEvent) => {
   }
   to {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(1);
   }
 }
 
 @keyframes animDragEnd {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(1);
   }
   to {
     opacity: 1;

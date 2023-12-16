@@ -1,62 +1,27 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import ListOfElements from "./ListOfElements.vue";
-import type {ItemType, DraggedItem} from "@/entities/dragAndDropType";
+import {useDragEvents} from "@/composable/useDragEvents";
+import {ArrayOfObjWithList} from "@/data/lists";
 
-const list1 = ref([
-  {id: 1, name: "Item 1"},
-  {id: 2, name: "Item 2"},
-  {id: 3, name: "Item 3"},
-]);
-const list2 = ref([
-  {id: 4, name: "Item 4"},
-  {id: 5, name: "Item 5"},
-  {id: 6, name: "Item 6"},
-]);
+const lists = ref(ArrayOfObjWithList);
 
-const draggedItemInfo = ref<DraggedItem>({
-  item: {id: 0, name: ""},
-  originalList: [],
-});
+// onDragStart is invoked here to updated the reactive with the item and list that will be used in the drop event
+// --- ( get the selected item from the emitter (item from the v-for in the list of element))
+// --- (get the list from the list of elements emitter (the one passed as props))
 
-const onDragStart = (item: ItemType, list: ItemType[]) => {
-  draggedItemInfo.value = {
-    item: item,
-    originalList: list,
-  };
-};
-
-const onDragDrop = (list: any) => {
-  console.log("on  drop");
-
-  // Remove the dragged item from its original list
-  const index = draggedItemInfo.value.originalList.findIndex(
-    (item) => item.id === draggedItemInfo.value.item.id
-  );
-  draggedItemInfo.value.originalList.splice(index, 1);
-
-  // Add the dragged item to the new list at the dropped position
-  list.push(draggedItemInfo.value.item);
-
-  // Clear the dragged item and lists
-  draggedItemInfo.value = {
-    item: {id: 0, name: ""},
-    originalList: [],
-  };
-};
+// onDragDrop is invoked here to correctly update the different lists
+// --- (get the list from the list of elements emitter (the one passed as props)))
+const {draggedItemInfo, onDragStart, onDragDrop} = useDragEvents();
 </script>
 
 <template>
   <div class="drop_down_main_container">
     <list-of-elements
-      :list="list1"
-      :listName="'List 1'"
-      @emitDragStart="onDragStart"
-      @emitDragDrop="onDragDrop" />
-
-    <list-of-elements
-      :list="list2"
-      :listName="'List 2'"
+      v-for="list of lists"
+      :list="list.list"
+      :listName="list.name"
+      :itemOriginalList="draggedItemInfo.itemOriginalList"
       @emitDragStart="onDragStart"
       @emitDragDrop="onDragDrop" />
   </div>
@@ -64,14 +29,16 @@ const onDragDrop = (list: any) => {
 
 <style lang="scss" scoped>
 .drop_down_main_container {
+  padding: 2rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  // flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5rem;
 
   padding-block: 2rem;
 
-  background-color: #e1e0e0;
+  background-color: $color-page-content;
 }
 
 .list {
@@ -93,10 +60,6 @@ h2 {
 
   margin-bottom: 1rem;
   width: 90%;
-}
-
-.dragging_over {
-  background-color: #196d9a;
 }
 </style>
 
@@ -120,4 +83,3 @@ const mousePosInDraggedItem = (event: MouseEvent) => {
 // };
 
 -->
-./dragAndDropType

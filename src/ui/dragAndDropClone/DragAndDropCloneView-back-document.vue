@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {onMounted, reactive, ref} from "vue";
 import ListElementClone from "./ListElementClone.vue";
-import type {ItemType} from "@/entities/dragAndDropType";
+import type {ListElementType} from "@/entities/dragAndDropType";
 
 const list1 = ref([
   {id: 1, name: "Item 1"},
@@ -28,7 +28,7 @@ let intialMousePos = reactive({
 });
 
 let cloneToDrag = reactive({
-  element: null as ItemType | null,
+  element: null as ListElementType | null,
   x: 0,
   y: 0,
   translateX: 0,
@@ -78,7 +78,7 @@ const setClonePosition = () => {
 };
 
 // mouse down on item to drag
-const onSelectedItemToDrag = (event: MouseEvent, item: ItemType) => {
+const onSelectedItemToDrag = (event: MouseEvent, item: ListElementType) => {
   event.preventDefault(); // prevent to select text when mouse move while mouse down
 
   DragAndDropContainer.element!.addEventListener("mousemove", mouseMove);

@@ -8,7 +8,7 @@
 
 <style lang="scss">
 .header {
-  background-color: #2e73a0;
+  background-color: $color-background-header;
   display: flex;
   align-items: center;
 

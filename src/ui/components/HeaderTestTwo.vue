@@ -8,7 +8,7 @@
 
 <style lang="scss">
 .header-test-two {
-  background-color: #0170ba;
+  background-color: #015790;
   display: flex;
   align-items: center;
 

@@ -1,5 +1,3 @@
-"use strict";
-
 import type {GlobalCountType} from "@/entities/GlobalCountType";
 import {nextTick, reactive} from "vue";
 

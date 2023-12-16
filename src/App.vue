@@ -18,6 +18,7 @@ const addTeam = () => {
   <header-test-two />
   <section class="sidebar-content-container-grid">
     <nav class="router">
+      <button @click="addTeam">add team</button>
       <RouterLink
         to="/"
         v-slot="{isExactActive}">
@@ -34,7 +35,6 @@ const addTeam = () => {
       <RouterLink to="/countercomp">compoApi</RouterLink>
       <RouterLink to="/counteropt">optionApi</RouterLink>
       <RouterLink to="/gaveup">Old Test</RouterLink>
-      <button @click="addTeam">add team</button>
     </nav>
 
     <RouterView />
@@ -54,18 +54,27 @@ const addTeam = () => {
 }
 
 .router {
-  background-color: rgb(43, 41, 41);
+  background-color: $color-background-sidebar;
 
-  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.5rem;
+  padding: 1rem;
 
   a {
     text-decoration: none;
     color: rgb(186, 182, 182);
     font-size: 1.2rem;
     font-weight: 900;
+
+    padding: 1rem;
+  }
+
+  .router-link-active {
+    background-color: rgb(211, 210, 210);
+    border-radius: 1rem;
+
+    color: rgb(98, 97, 97);
   }
 }
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {Artiste} from "@/entities/Artiste";
-import CardUnit from "@/components/CardUnit.vue";
-import CardInput from "@/components/CardInput.vue";
+import CardUnit from "@/ui/components/CardUnit.vue";
+import CardInput from "@/ui/components/CardInput.vue";
 import {reactive} from "vue";
 
 const initialdata: Artiste[] = [
@@ -55,6 +55,8 @@ const setInputValue = (value: string) => {
 
 <style lang="scss">
 .card-view-wrapper {
+  background-color: $color-page-content;
+
   padding: 1rem;
 
   display: flex;

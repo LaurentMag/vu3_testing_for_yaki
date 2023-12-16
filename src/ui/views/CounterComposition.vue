@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import CounterCompoOne from "@/components/counterCompoOne.vue";
-import CounterCompoTwo from "@/components/counterCompoTwo.vue";
+import CounterCompoOne from "@/ui/components/counterCompoOne.vue";
+import CounterCompoTwo from "@/ui/components/counterCompoTwo.vue";
 
-// global reactive used here with button and button text display
-import {globalCount} from "@/services/globalCount.js";
+import {globalCount} from "@/store/globalCount";
 </script>
 
 <!-- --------------------------------------------------------------- -->
 
 <template>
-  <section>
+  <section class="counter-comp-wrapper">
     <article>
       <p>This is counter view with composition logic</p>
       <div class="button-div">
-        <button @click="globalCount.increment()">global counter : {{ globalCount.count }}</button>
+        <button @click="globalCount.increment()">
+          global counter : {{ globalCount.count }}
+        </button>
         <button @click="globalCount.reset()">Reset global count</button>
       </div>
     </article>
@@ -27,6 +28,15 @@ import {globalCount} from "@/services/globalCount.js";
 <!-- --------------------------------------------------------------- -->
 
 <style lang="scss">
+.counter-comp-wrapper {
+  background-color: $color-page-content;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .button-div {
   padding: 1rem;
   max-width: 15rem;
@@ -44,3 +54,4 @@ import {globalCount} from "@/services/globalCount.js";
   gap: 1rem;
 }
 </style>
+@/assets/globalCount.js

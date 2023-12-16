@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {ref, type PropType, onBeforeMount, onUnmounted, onMounted} from "vue";
-import type {ItemType} from "@/entities/dragAndDropType";
+import type {ListElementType} from "@/entities/dragAndDropType";
+import {ref, type PropType, onBeforeMount} from "vue";
 
 const isMounted = ref(false);
 const isDragged = ref(false);
@@ -17,12 +17,12 @@ onBeforeMount(() => {
 
 const props = defineProps({
   item: {
-    type: Object as PropType<ItemType>,
+    type: Object as PropType<ListElementType>,
     required: true,
   },
 });
 
-const emit = defineEmits(["emitDragStart", "emitDragEnd"]);
+const emit = defineEmits(["emitDragStart"]);
 
 const onDragStart = (event: DragEvent) => {
   isDragged.value = true;
@@ -32,8 +32,6 @@ const onDragStart = (event: DragEvent) => {
 
 const onDragEnd = (event: DragEvent) => {
   isDragged.value = false;
-
-  // emit("emitDragEnd", event);
 };
 </script>
 
@@ -71,31 +69,14 @@ const onDragEnd = (event: DragEvent) => {
 }
 .drag_transition {
   background-color: #bababa;
-  opacity: 0.25;
+  opacity: 0.1;
   transform: scale(0.9);
-}
-
-.drag_start_class {
-  // opacity: 0;
-  // transform: scale(0.9);
-  animation: animDragStart 0.25s ease-in-out forwards;
 }
 
 .drag_end_class {
   // opacity: 1;
   // transform: scale(1);
   animation: animDragEnd 0.25s ease-in-out forwards;
-}
-
-@keyframes animDragStart {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.9);
-  }
 }
 
 @keyframes animDragEnd {
