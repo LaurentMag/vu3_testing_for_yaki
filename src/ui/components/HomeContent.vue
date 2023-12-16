@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Text from "@/components/Text.vue";
+import Text from "@/ui/components/Text.vue";
 </script>
 
 <template>

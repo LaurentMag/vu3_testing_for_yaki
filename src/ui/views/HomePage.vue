@@ -2,8 +2,8 @@
 <!-- https://codepen.io/vdsabev/pen/MvzYww?editors=0110 -->
 
 <script setup lang="ts">
-import PageLayout from "@/shared/PageLayout.vue";
-import HomeContent from "@/components/HomeContent.vue";
+import PageLayout from "@/ui/layout/PageLayout.vue";
+import HomeContent from "@/ui/components/HomeContent.vue";
 </script>
 
 <template>

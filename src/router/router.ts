@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router";
-import HomeContentTwo from "@/components/HomeContentTwo.vue";
+import HomeContentTwo from "@/ui/components/HomeContentTwo.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,7 +15,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../pages/CounterOptionApi.vue"),
+      component: () => import("../ui/views/CounterOptionApi.vue"),
     },
     {
       path: "/countercomp",
@@ -23,7 +23,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../pages/CounterComposition.vue"),
+      component: () => import("../ui/views/CounterComposition.vue"),
     },
     {
       path: "/cardview",
@@ -31,7 +31,23 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].jss) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../pages/CardView.vue"),
+      component: () => import("../ui/views/CardView.vue"),
+    },
+    {
+      path: "/dragdrop",
+      name: "dragdrop",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].jss) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../ui/dragAndDrop/DragAndDropTesting.vue"),
+    },
+    {
+      path: "/dragdropclone",
+      name: "dragdropclone",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].jss) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../ui/dragAndDropClone/DragAndDropCloneView.vue"),
     },
     {
       path: "/gaveup",
@@ -39,7 +55,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].jss) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../pages/HomePage.vue"),
+      component: () => import("../ui/views/HomePage.vue"),
     },
   ],
 });

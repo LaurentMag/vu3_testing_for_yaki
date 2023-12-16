@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {RouterLink, RouterView} from "vue-router";
-import HeaderTestTwo from "@/components/HeaderTestTwo.vue";
+import HeaderTestTwo from "@/ui/components/HeaderTestTwo.vue";
 import {reactive} from "vue";
 
 const teams = reactive({
@@ -28,9 +28,11 @@ const addTeam = () => {
             :class="{'active-link': isExactActive}"></div>
         </div>
       </RouterLink>
-      <RouterLink to="/counteropt">optionApi</RouterLink>
-      <RouterLink to="/countercomp">compoApi</RouterLink>
       <RouterLink to="/cardview">Card view</RouterLink>
+      <RouterLink to="/dragdrop">Drag and Drop</RouterLink>
+      <RouterLink to="/dragdropclone">Drag&Drop Clone</RouterLink>
+      <RouterLink to="/countercomp">compoApi</RouterLink>
+      <RouterLink to="/counteropt">optionApi</RouterLink>
       <RouterLink to="/gaveup">Old Test</RouterLink>
       <button @click="addTeam">add team</button>
     </nav>
@@ -48,7 +50,7 @@ const addTeam = () => {
   flex: 1;
 
   display: grid;
-  grid-template-columns: minmax(10rem, 20rem) minmax(80%, 1fr);
+  grid-template-columns: minmax(20%, 20rem) minmax(80%, 1fr);
 }
 
 .router {

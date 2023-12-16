@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeaderComp from "@/components/HeaderComp.vue";
-import SideBar from "@/components/SideBar.vue";
+import HeaderComp from "@/ui/components/HeaderComp.vue";
+import SideBar from "@/ui/components/SideBar.vue";
 import {ref} from "vue";
 
 const switchSide = ref(false);
